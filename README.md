@@ -1,0 +1,2 @@
+# Predictive-Maintenance-of-Solar-Panels-via-Ensemble-Machine-Learning
+Built for the Zelestra × AWS ML Ascend Challenge 2nd Edition. End-to-end ML pipeline forecasting solar panel efficiency from sensor data. Features: target-encoded IDs, error-severity, interaction/polynomial/cyclical/rolling stats. Optuna-tuned XGBoost/LightGBM/CatBoost with early stopping, stacked ensemble — 89.81% score, ranked 148/1016.
