@@ -28,4 +28,4 @@ Validation Score: 89.81% (100×(1−RMSE))
 
 Challenge Rank: 148 out of 1016 teams
 
-By Rishi Chhabra
+By OSM_Knights
