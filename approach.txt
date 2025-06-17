@@ -1,0 +1,48 @@
+Approach Overview
+=================
+1. Exploratory Data Analysis (EDA)
+   - Visualized distributions and correlations of sensor readings.
+   - Identified missing values and outliers for imputation strategies.
+
+2. Preprocessing & Feature Engineering
+   - Imputed missing sensor data using median values.
+   - Encoded categorical features:
+     • string_id: target encoding
+     • installation_type: one-hot encoding
+     • error_code: mapped to severity levels
+   - Derived new features:
+     • temp_diff = module_temperature - temperature
+     • power_output = voltage * current
+     • age_maintenance_interaction = panel_age * maintenance_count
+     • rolling_avg_irradiance (window=3)
+   - Scaled numerical features using StandardScaler.
+
+3. Model Selection & Training
+   - Baseline: Linear Regression, Random Forest Regressor.
+   - Advanced: XGBoost Regressor, LightGBM Regressor.
+   - Hyperparameter tuning via 5-fold cross-validation and Bayesian Optimization (Optuna).
+   - Final model: ensemble averaging of top XGBoost and LightGBM models.
+
+4. Evaluation
+   - Optimized for RMSE on validation folds.
+   - Final Score computed as 100*(1 - RMSE).
+
+5. Submission
+   - Generated predictions on test.csv.
+   - Exported submission.csv with columns [id, efficiency].
+
+Tools & Libraries
+-----------------
+- Python 3.8+
+- pandas, numpy
+- scikit-learn
+- xgboost, lightgbm
+- optuna
+- matplotlib, seaborn
+
+Source Files
+------------
+- train_model.py       : Main training and prediction script.
+- feature_engineering.py : Functions for data cleaning and feature creation.
+- utils.py             : Helper functions (data loading, evaluation).
+- requirements.txt     : List of necessary Python packages.
